@@ -32,6 +32,7 @@ parse :: String -> [LogMessage]
 parse = (map parseMessage).lines
 
 -- Test this function using this funcion: testParse parse 10 "error.log" ... 10 is the no. of lines to test
+logMsgList = testParse parse 10 "error.log"
 
 -- Exercise 2 - insert a LogMessage into a Log MessageTree
 insert :: LogMessage -> MessageTree -> MessageTree
