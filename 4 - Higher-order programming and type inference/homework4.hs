@@ -42,6 +42,9 @@ xor = odd . length . foldl (\acc x -> if x then x:acc else acc) []
 map' :: (a -> b) -> [a] -> [b]
 map' f = foldr (\x acc -> (f x):acc) []
 
--- Exercise 4 - Finding primes ... generate all odd prime numbers upto (2n+2)
--- sieveSundaram :: Integer -> [Integer]
--- sieveSundaram = 
+-- Exercise 4 - Finding primes ... generate all odd prime numbers upto (2n+2) using Sieve Sundram algorithm
+cartProd :: Integer -> [Integer]
+cartProd n = [(i + j + (2*i*j)) | i <- [1..n], j <- [1..n] , i<=j]
+
+sieveSundaram :: Integer -> [Integer]
+sieveSundaram n = map (\x->2*x+1) $ filter (\x -> not$ x `elem` cartProd n) [1..n]
